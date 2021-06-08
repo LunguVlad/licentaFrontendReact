@@ -4,12 +4,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import LoginComponent from './components/LoginComponent';
+import CreateUserComponent from './components/CreateUserComponent';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <div>
-      <LoginComponent></LoginComponent>
+    <div className="centered">
+      <CreateUserComponent></CreateUserComponent>
     </div>
   </React.StrictMode>,
   document.getElementById('root')

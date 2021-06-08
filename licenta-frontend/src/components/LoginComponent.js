@@ -1,20 +1,15 @@
 import React from 'react';
 import {useState , useEffect} from 'react';
+import Button from 'react-bootstrap/Button'
 
 function LoginComponent(){
 
-    const [user,setUser] = useState({
-        email:"",
-        password:""
-    })
     const [pass,setPass] = useState("")
+    const [email,setEmail] = useState("")
 
-    const passwordChange = (evt) =>{
-        setUser.password = evt.target.value;
-    }
 
     useEffect(() =>{
-        console.log(pass);
+        console.log(email + pass);
     })
 
 
@@ -24,7 +19,7 @@ function LoginComponent(){
 
             <div className="form-group">
                 <label>Email</label>
-                <input type="email" id="email" className="form-control" placeholder="Introduceti email-ul" />
+                <input type="email" id="email" className="form-control" placeholder="Introduceti email-ul" onChange={evt => setEmail(evt.target.value)} />
             </div>
 
             <div className="form-group">
@@ -39,14 +34,17 @@ function LoginComponent(){
                 </div>
             </div>
 
-            <button type="button" className="btn btn-primary btn-block" onClick={() => {
+            <div >
+            <Button  variant="dark"  type="button" className="btn btn-primary btn-block" onClick={() => {
                 // let email = document.getElementById("email").value;
                 // let password = document.getElementById("password").value;
 
-                console.log(user)
+                console.log(email)
                 console.log(pass)
 
-            }}>Submit</button>
+            }}>Submit</Button>
+            </div>
+        
         </form>
     );
 }
