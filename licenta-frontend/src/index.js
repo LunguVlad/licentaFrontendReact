@@ -6,13 +6,14 @@ import reportWebVitals from './reportWebVitals';
 import LoginComponent from './components/LoginComponent';
 import CreateUserComponent from './components/CreateUserComponent';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { NavBarComponent } from './components/NavBarComponent';
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <div className="centered">
-      <CreateUserComponent></CreateUserComponent>
-    </div>
+   
+    <App></App>
+   
   </React.StrictMode>,
   document.getElementById('root')
 );

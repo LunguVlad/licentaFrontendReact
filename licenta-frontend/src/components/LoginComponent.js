@@ -1,17 +1,40 @@
 import React from 'react';
 import {useState , useEffect} from 'react';
 import Button from 'react-bootstrap/Button'
+import authenticateUser from '../requests/authenticate';
+import {useHistory} from 'react-router-dom'
 
 function LoginComponent(){
 
     const [pass,setPass] = useState("")
     const [email,setEmail] = useState("")
+    const [returnedUser,setReturnedUser] = useState({})
+    const history = useHistory()
 
+
+    
+
+    const handleLogin = async () =>{
+        let user = {
+            email: email,
+            password: pass
+        }
+
+        let response = await authenticateUser(user);
+
+
+        setReturnedUser(response)
+
+    
+        if(1==1){
+            history.push("/home")
+        }
+
+    }
 
     useEffect(() =>{
-        console.log(email + pass);
+        console.log("STATE USER: " + returnedUser)
     })
-
 
     return (
         <form>
@@ -31,18 +54,12 @@ function LoginComponent(){
                 <div className="custom-control custom-checkbox">
                     <input type="checkbox" className="custom-control-input" id="customCheck1" />
                     <label className="custom-control-label" htmlFor="customCheck1">Remember me</label>
+                    {console.log(returnedUser)}
                 </div>
             </div>
 
             <div >
-            <Button  variant="dark"  type="button" className="btn btn-primary btn-block" onClick={() => {
-                // let email = document.getElementById("email").value;
-                // let password = document.getElementById("password").value;
-
-                console.log(email)
-                console.log(pass)
-
-            }}>Submit</Button>
+            <Button  variant="dark"  type="button" className="btn btn-primary btn-block" onClick={handleLogin}>Submit</Button>
             </div>
         
         </form>
