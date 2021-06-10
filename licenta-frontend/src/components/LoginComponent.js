@@ -1,5 +1,5 @@
 import React from 'react';
-import {useState , useEffect} from 'react';
+import {useState , useEffect, useRef, useLayoutEffect} from 'react';
 import Button from 'react-bootstrap/Button'
 import authenticateUser from '../requests/authenticate';
 import {useHistory} from 'react-router-dom'
@@ -10,6 +10,8 @@ function LoginComponent(){
     const [email,setEmail] = useState("")
     const [returnedUser,setReturnedUser] = useState({})
     const history = useHistory()
+    const [firstRender,setFirstRender] = useState(true) 
+    
 
 
     
@@ -22,19 +24,28 @@ function LoginComponent(){
 
         let response = await authenticateUser(user);
 
-
         setReturnedUser(response)
 
     
-        if(1==1){
-            history.push("/home")
-        }
+       
 
     }
 
     useEffect(() =>{
-        console.log("STATE USER: " + returnedUser)
-    })
+        if(firstRender === true){
+        }
+        else{
+            if(returnedUser.email === email){
+                history.push({
+                    pathname: '/administration',
+                    state: returnedUser
+                })
+            }else{
+            alert("USERNAME PASS WRONG")
+            }
+        }
+        setFirstRender(false)
+    },[returnedUser])
 
     return (
         <form>

@@ -14,7 +14,7 @@ function App() {
         <Router>
           <Switch>
             <Route exact path="/" component={LoginComponent}></Route>
-            <Route path="/home" component={WelcomeComponent}></Route>
+            <Route path="/administration" render={ (props) => <WelcomeComponent {...props}></WelcomeComponent> } ></Route>
          </Switch>
         </Router>
     </React.Fragment>
