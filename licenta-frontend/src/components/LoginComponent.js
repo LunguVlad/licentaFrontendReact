@@ -11,6 +11,7 @@ function LoginComponent(){
     const [returnedUser,setReturnedUser] = useState({})
     const history = useHistory()
     const [firstRender,setFirstRender] = useState(true) 
+    const [rememberMe,setRememberMe] = useState(false)
     
 
 
@@ -26,16 +27,30 @@ function LoginComponent(){
 
         setReturnedUser(response)
 
-    
+        
        
 
     }
+   
+    useEffect(() => {
+        //component did mount
+        let rememberMe = localStorage.getItem('rememberMe') === 'true';
+        let email = rememberMe ? localStorage.getItem('email') : '';
+        setRememberMe(rememberMe)
+        setEmail(email)
+    }, [])
+
+    useEffect(() => {
+        console.log(rememberMe)
+    }, [rememberMe])
 
     useEffect(() =>{
         if(firstRender === true){
         }
         else{
             if(returnedUser.email === email){
+                localStorage.setItem("rememberMe" , rememberMe)
+                localStorage.setItem("email",rememberMe ? email : "")
                 history.push({
                     pathname: '/administration',
                     state: returnedUser
@@ -52,8 +67,8 @@ function LoginComponent(){
             <h1>Sign In</h1>
 
             <div className="form-group">
-                <label>Email</label>
-                <input type="email" id="email" className="form-control" placeholder="Introduceti email-ul" onChange={evt => setEmail(evt.target.value)} />
+                <label>Email</label>user
+                <input type="email" id="email" className="form-control" placeholder="Introduceti email-ul" value={email} onChange={evt => setEmail(evt.target.value)} />
             </div>
 
             <div className="form-group">
@@ -63,7 +78,7 @@ function LoginComponent(){
 
             <div className="form-group">
                 <div className="custom-control custom-checkbox">
-                    <input type="checkbox" className="custom-control-input" id="customCheck1" />
+                    <input type="checkbox" className="custom-control-input" id="customCheck1" checked={rememberMe} onChange={() => {if(rememberMe === false) setRememberMe(true); else setRememberMe(false);}} />
                     <label className="custom-control-label" htmlFor="customCheck1">Remember me</label>
                     {console.log(returnedUser)}
                 </div>

@@ -5,14 +5,16 @@ import {Form , FormControl} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 
-function NavBarComponent(props){
+function NavBarComponent({props,home}){
+    const handleClick = () =>{
+      home()
+    }
+
     return(
         <Navbar bg="dark" variant="dark">
-          {console.log("NAVBAR")}
-          {console.log(props)}
         <Navbar.Brand href="#home">Administrare bloc</Navbar.Brand>
         <Nav className="mr-auto">
-          <Nav.Link href="/administration" as={Link} to={{
+          <Nav.Link href="/administration" as={Link} onClick={handleClick} to={{
             pathname:"/administration",
             state: props
           }}>Home</Nav.Link>

@@ -50,14 +50,14 @@ const TableLocatari = () =>{
     useEffect( async () => {
         let data = await getUsers()
 
-
-
         setUsers(data)
-
-        console.log("DATA")
-        console.log(data)
     },[])
 
+    useEffect( async () => {
+        let data = await getUsers()
+
+        setUsers(data)
+    },[renderForm == false])
 
 
 
