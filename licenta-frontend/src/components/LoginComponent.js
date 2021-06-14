@@ -63,11 +63,12 @@ function LoginComponent(){
     },[returnedUser])
 
     return (
+        <div className="centered">
         <form>
             <h1>Sign In</h1>
 
             <div className="form-group">
-                <label>Email</label>user
+                <label>Email</label>
                 <input type="email" id="email" className="form-control" placeholder="Introduceti email-ul" value={email} onChange={evt => setEmail(evt.target.value)} />
             </div>
 
@@ -89,6 +90,7 @@ function LoginComponent(){
             </div>
         
         </form>
+        </div>
     );
 }
 
