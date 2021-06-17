@@ -5,14 +5,17 @@ import Table from 'react-bootstrap/Table'
 import TableLocatari from './TableLocatari';
 
 
-const Locatari = ()=>{
+const Locatari = (props)=>{
 
+  
 
     
  
 
     return(
-        <TableLocatari></TableLocatari>
+       
+        <TableLocatari props={props}></TableLocatari>
+       
     )
 }
 

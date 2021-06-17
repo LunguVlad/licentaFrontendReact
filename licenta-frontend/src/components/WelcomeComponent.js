@@ -42,7 +42,7 @@ export function WelcomeComponent(props){
             {console.log(user)}
             <NavBarComponent props={user} home={clickHome}></NavBarComponent>
             
-            {renderLocatari ? <Locatari></Locatari> :<div className="centered" style={{backgroundImage : `url(${image})`}}>
+            {renderLocatari ? <Locatari props={user.bloc.numarBloc}></Locatari> :<div className="centered" style={{backgroundImage : `url(${image})`}}>
                 <h3 style={{fontSize:'40px'}}>Bine ai venit ,{user.firstName}!</h3>
             </div>}
             

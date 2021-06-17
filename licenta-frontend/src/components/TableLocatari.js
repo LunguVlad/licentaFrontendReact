@@ -11,11 +11,12 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import  Modal  from 'react-bootstrap/Modal';
 import CreateUserComponent from './CreateUserComponent';
 
-const TableLocatari = () =>{
+const TableLocatari = (props) =>{
     
     const [users,setUsers] = useState([])
     const [loading,setLoading] = useState(false)
     const [renderForm,setRenderForm] = useState(false)
+    const [numarBloc,setNumarBloc] = useState(props.props.props)
 
     
 
@@ -47,14 +48,19 @@ const TableLocatari = () =>{
 
    
 
-    useEffect( async () => {
-        let data = await getUsers()
+    // useEffect( async () => {
+    //     console.log("TEST")
+    //     console.log(numarBloc)
+    //     let data = await getUsers(numarBloc)
+    //     console.log("data")
+    //     console.log(data)
 
-        setUsers(data)
-    },[])
+    //     setUsers(data)
+    // },[])
+
 
     useEffect( async () => {
-        let data = await getUsers()
+        let data = await getUsers(numarBloc)
 
         setUsers(data)
     },[renderForm == false])
