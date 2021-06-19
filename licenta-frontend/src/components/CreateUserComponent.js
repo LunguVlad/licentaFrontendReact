@@ -45,7 +45,7 @@ function CreateUserComponent(){
     }
     
     return(
-        <Form title="LOL?">
+        <Form title="Adauga utilizator">
             <h3> Date utilizator </h3>
             <Form.Group controlId = "email">
                 <FormLabel>Email utilizator</FormLabel>
