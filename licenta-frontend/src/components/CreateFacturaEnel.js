@@ -13,8 +13,8 @@ function CreateFacturaEnel(props) {
         valoareScara2: 0,
         valoareScara3: 0
     })
-    const [numarBloc,setNumarBloc] = useState(props.props.numarBloc)
-    const [numarScari,setNumarScari] = useState(props.props.numarScari)
+    const [numarBloc,setNumarBloc] = useState(props.props.props.numarBloc)
+    const [numarScari,setNumarScari] = useState(props.props.props.numarScari)
 
     const handleChange = (evt) => {
         setFactura({
@@ -49,8 +49,9 @@ function CreateFacturaEnel(props) {
             </Form.Group> : console.log("Mai putin de 3 scari")
             }
 
+            <br/>
 
-            <Button variant="dark" type = "button"  onClick={handleSubmit}> Adauga factura Apa Nova </Button> 
+            <Button variant="dark" type = "button"  onClick={handleSubmit}> Adauga factura Enel </Button> 
 
         </Form>
     )

@@ -57,6 +57,7 @@ export function CreateFacturaApaNova(props) {
                 <FormLabel>Consum apa calda facturat</FormLabel>
                 <Form.Control name="consumFacturatApaCalda" type="number" placeholder= "Introduceti consumul facturat pentru apa rece" onChange={handleChange}></Form.Control>
             </Form.Group>
+            <br/>
             <Button variant="dark" type = "button"  onClick={handleSubmit}> Adauga factura Apa Nova </Button>
         </Form>
     )

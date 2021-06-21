@@ -74,6 +74,8 @@ function CreateCheltuiala(props) {
                 </Form.Control>
             </Form.Group>
 
+            <br/>
+
 
             <Button variant="dark" type = "button"  onClick={handleSubmit}> Adauga cheltuiala </Button> 
 

@@ -5,7 +5,9 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import postUser from '../requests/postUser'
 
-function CreateUserComponent(){
+function CreateUserComponent(props){
+
+    const [numarBloc,setNumarBloc] = useState(props.props) 
 
     const [user,setUser] = useState({
         email:"",
@@ -40,7 +42,7 @@ function CreateUserComponent(){
 
 
     async function handleSubmit(){
-        let response = await postUser(user);
+        let response = await postUser(user,numarBloc);
         alert("Utilizator adaugat")
     }
     

@@ -50,6 +50,7 @@ function CreateFacturaSuez(props) {
             </Form.Group> : console.log("Mai putin de 3 scari")
             }
 
+            <br/>   
 
             <Button variant="dark" type = "button"  onClick={handleSubmit}> Adauga factura Suez </Button> 
 

@@ -31,11 +31,18 @@ const TableLocatari = (props) =>{
         {dataField: "firstName" , text: "Prenume"},
         {dataField: "scara" , text: "Scara" , formatter: cell=>selectOptions[cell] ,filter: selectFilter({
             options:selectOptions,
-            placeholder:"Toate scarile"
+            placeholder:"Toate scarile",
+            default : 1
         })},
         {dataField: "apartament" , text: "Apartament"},
         {dataField: "nrPersoane" , text : "Numar persoane"}
     ]
+
+    const rowEvents = {
+        onClick: (e,row, rowIndex) =>{
+            alert("Clicked " + row.lastName)
+        }
+    }
 
 
     const handleClick = () =>{
@@ -83,13 +90,14 @@ const TableLocatari = (props) =>{
                 data = {users}
                 columns = {colums}
                 hover = {true}
+                rowEvents = {rowEvents}
                 filter= {filterFactory()}
                 pagination = {paginationFactory()}/>
             </div>
 
             <Modal show={renderForm}>
                 <ModalBody>
-                    <CreateUserComponent></CreateUserComponent>
+                    <CreateUserComponent props = {numarBloc}></CreateUserComponent>
                 </ModalBody>
                 <ModalFooter>
                         <Button variant="dark" onClick={handleClick}>Inchide</Button>

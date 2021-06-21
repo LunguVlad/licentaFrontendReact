@@ -28,3 +28,9 @@ input[type=number]::-webkit-outer-spin-button {
   justify-content: center;
   align-items: center;
 }
+
+.centerHorizontal {
+  display: flex;
+  justify-content: center;
+  align-items: top;
+}
