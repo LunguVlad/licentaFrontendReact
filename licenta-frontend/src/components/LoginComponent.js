@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button'
 import authenticateUser from '../requests/authenticate';
 import {useHistory} from 'react-router-dom'
 
-function LoginComponent(){
+function LoginComponent({handleLoginUser}){
 
     const [pass,setPass] = useState("")
     const [email,setEmail] = useState("")
@@ -51,6 +51,7 @@ function LoginComponent(){
             if(returnedUser.email === email){
                 localStorage.setItem("rememberMe" , rememberMe)
                 localStorage.setItem("email",rememberMe ? email : "")
+                handleLoginUser()
                 history.push({
                     pathname: '/administration',
                     state: returnedUser
