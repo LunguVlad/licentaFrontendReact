@@ -17,7 +17,7 @@ function NavBarComponent({props,home}){
           <Nav.Link href="/administration" as={Link} onClick={handleClick} to={{
             pathname:"/administration",
             state: props
-          }}>Home</Nav.Link>
+          }}>Acasa</Nav.Link>
           <Nav.Link href="#locatari">Locatari</Nav.Link>
           <Nav.Link href="#facturi">Facturi</Nav.Link>
           <Nav.Link href="/">Log Out</Nav.Link>

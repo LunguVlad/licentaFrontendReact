@@ -87,7 +87,7 @@ function LoginComponent({handleLoginUser}){
             </div>
 
             <div >
-            <Button  variant="dark"  type="button" className="btn btn-primary btn-block" onClick={handleLogin}>Submit</Button>
+            <Button  variant="dark"  type="button" className="btn btn-primary btn-block" onClick={handleLogin}>Login</Button>
             </div>
         
         </form>

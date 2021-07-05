@@ -64,6 +64,7 @@ export function WelcomeComponent(props){
 
             {renderLocatari ? <Locatari props={user.bloc.numarBloc}></Locatari> : renderFacturi ? <Facturi props={user.bloc}></Facturi> : <div className="centered" style={{backgroundImage : `url(${image})`}}>
                 <h3 style={{fontSize:'40px'}}>Bine ai venit ,{user.firstName}!</h3>
+                
             </div>}
 
             

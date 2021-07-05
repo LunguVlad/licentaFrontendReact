@@ -3,6 +3,7 @@ import { Pagination } from 'react-bootstrap';
 import NavBarComponent from './NavBarComponent';
 import Table from 'react-bootstrap/Table'
 import TableLocatari from './TableLocatari';
+import image from '../img.jpg'
 
 
 const Locatari = (props)=>{
@@ -13,8 +14,10 @@ const Locatari = (props)=>{
  
 
     return(
-       
-        <TableLocatari props={props}></TableLocatari>
+
+        
+           <TableLocatari props={props}></TableLocatari>
+            
        
     )
 }
