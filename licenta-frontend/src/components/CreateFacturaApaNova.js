@@ -16,7 +16,7 @@ export function CreateFacturaApaNova(props) {
         pretConsumApaCaldaRestant: 0,
         consumFacturatApaCalda: 0
     })
-    const [numarBloc,setNumarBloc] = useState(props.props)
+    const [numarBloc,setNumarBloc] = useState(props.props.props.numarBloc)
 
     const handleChange = (evt) => {
         setFactura({
